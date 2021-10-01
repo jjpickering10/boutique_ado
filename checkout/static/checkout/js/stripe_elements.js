@@ -50,6 +50,8 @@ form.addEventListener('submit', function(ev) {
       'disabled': true
   })
   $('#submit-button').attr('disabled', true)
+  $('#payment-form').fadeToggle(100)
+  $('#loading-overlay').fadeToggle(100)
 
   // If the client secret was rendered server-side as a data-secret attribute
   // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
@@ -68,6 +70,9 @@ form.addEventListener('submit', function(ev) {
             <span>${result.error.message}</span>
         `
         $(errorDiv).html(html)
+        $('#payment-form').fadeToggle(100)
+        $('#loading-overlay').fadeToggle(100)
+
         card.update({
             'disabled': false
         })
